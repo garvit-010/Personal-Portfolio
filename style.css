@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #f16363;
+    --accent-color: #3f83f8;
+    --text-color: #333333;
+    --link-color: #2563eb;
+    --background-color: #000000;
+    --light-gray: #f0f0f0;
+    --gray: #808080;
+    --dark-gray: #a35cff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+}
+
+body {
+    height: 100vh;
+    text-align: center;
+    background-color: var(--background-color);
+    background: url(./Images/Bg3.png) repeat;
+    padding: 0.1rem;
+}
+
+.header-content {
+    margin: 0 auto;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.nav {
+    display: none;
+    gap: 1.5rem;
+}
+
+@media screen and (min-width: 772px) {
+    .nav {
+        display: flex;
+    }
+}
+
+.nav_link {
+    color: #718096;
+    font-size: 1.125rem;
+    font-weight: 600;
+    transform: color 0.1s;
+}
+
+.nav_link:hover {
+    color: var(--link-color);
+}
+
+.contact-button {
+    display: none;
+    border: none;
+    border-radius: 0.375rem;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    transition: all 0.1s;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+@media screen and (min-width: 772px) {
+    .contact-button {
+        display: block;
+    }
+}
+
+.contact-button:hover {
+    background-color: #5254f8;
+}
+
+.menu-button {
+    display: none;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--background-color);
+}
+
+@media screen and (max-width: 772px) {
+    .menu-button {
+        display: block;
+    }
+}
+
+.menu-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.main-section {
+    background-color: #0000006a;
+    border-radius: 20px;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0.6rem;
+    align-items: center;
+    margin: 0 auto;
+    box-shadow: 5px 1px 15px #000000;
+    position: relative; /* Enables pseudo-element for glow */
+    transition: transform 0.3s ease; /* Smooth lift effect */
+}
+
+.main-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px; /* Matches the container's border radius */
+    box-shadow: 0 0 20px 10px #ff001e; /* Outer green glow */
+    z-index: -1; /* Places the glow behind the box */
+    opacity: 0; /* Default hidden */
+    transition: opacity 0.3s ease-in-out; /* Smooth fade-in/out */
+}
+
+.main-section:hover::before {
+    opacity: 1; /* Glow appears on hover */
+}
+
+.main-section:hover {
+    transform: translateY(-3px); /* Slight lift effect for hover */
+}
+
+
+.content-left {
+    text-align: center;
+    animation: slideFromLeft 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes slideFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.section-label {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.section-title {
+    font-size: 2.3rem;
+    font-weight: bold;
+    padding: 1.1rem;
+    color:#a8a5a5;
+}
+
+.section-description {
+    color: var(--gray);
+    font-size: 1.13rem;
+    margin-top: 0.6rem;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    margin-top: 0.5rem;
+}
+
+.start-button,
+.tour-button {
+    border: none;
+    border-radius: 0.375rem;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    transition: all 0.1s;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.tour-button {
+    background-color: var(--dark-gray);
+}
+
+.start-button:hover {
+    background-color: #5254f8;
+}
+
+.tour-button:hover {
+    background-color: var(--gray);
+}
+
+.content-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container {
+    border-radius: 0.625rem;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    height: 60vh;
+}
+
+.section-image {
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (min-width: 772px) {
+    .main-section {
+        flex-direction: row;
+    }
+
+    .content-left {
+        max-width: 50%;
+        text-align: left;
+    }
+
+    .section-title {
+        padding-left: 0;
+        font-size: 3.3rem;
+    }
+
+    .button-group {
+        justify-content: start;
+        padding-left: 0;
+    }
+
+    .section-label {
+        font-size: 1rem;
+    }
+}
+
+.contact-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: slideFromLeft 1s ease forwards;
+}
+
+.contact-grid {
+    margin-top: 2rem;
+    background-color: #0000006a;
+    box-shadow: 5px 1px 15px #000000;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.6rem;
+    padding: 2.5rem 3.3rem;
+    border: none;
+    border-radius: 0.625rem;
+    margin-bottom: 5rem;
+    position: relative; /* Required for pseudo-element positioning */
+    transition: transform 0.3s ease; /* Smooth lift effect */
+}
+
+.contact-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.625rem; /* Matches the container's border radius */
+    box-shadow: 0 0 20px 10px #5900ff; /* Outer green glow */
+    z-index: -1; /* Places the glow behind the box */
+    opacity: 0; /* Default hidden */
+    transition: opacity 0.3s ease-in-out; /* Smooth fade-in/out */
+}
+
+.contact-grid:hover::before {
+    opacity: 1; /* Glow appears on hover */
+}
+
+.contact-grid:hover {
+    transform: translateY(-3px); /* Slight lift effect for hover */
+}
+
+@media screen and (min-width: 772px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.contact-title {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.contact-logo {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--gray);
+    display: flex; /* Flexbox ensures logo and text align on the same row */
+    gap: 0.5rem; /* Space between logo and text */
+    align-items: center; /* Align items vertically */
+    justify-content: center; /* Left-align the content */
+    line-height: 1; /* Ensure consistent text height */
+    text-align: center;
+}
+
+.svg-image {
+    height: 1.5em; /* Control the height of the SVG */
+    width: auto; /* Maintain aspect ratio */
+    display: inline-block; /* Avoid potential misalignment issues */
+    vertical-align: middle; /* Align SVG with text */
+}
+
+.logo_text {
+    color: var(--gray);
+    text-decoration: none;
+    vertical-align: middle; /* Align text with the SVG */
+}
+
+
+.logo_text:hover {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+
+.skill-section {
+    background-color: #0000006a;
+    border-radius: 20px;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    padding: 0.6rem;
+    align-items: start;
+    margin: auto;
+    box-shadow: 5px 1px 15px #000000;
+    color: #808080;
+    position: relative; /* Enables the pseudo-element for the glow */
+    transition: transform 0.3s ease;
+}
+
+.skill-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 10px #ff001e; /* Subtle outer glow */
+    z-index: -1; /* Places the glow behind the box */
+    opacity: 0; /* Default hidden */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.skill-section:hover::before {
+    opacity: 1; /* Glow appears on hover */
+}
+
+.skill-section:hover {
+    transform: translateY(-3px); /* Slight lift effect for hover */
+}
+
+
+.skill-title{
+    font-size: 2.3rem;
+    font-weight: bold;
+    padding: 1.1rem;
+    color:#a8a5a5;  
+}
+
+.skill-list{
+    font-weight: 900;
+    text-align: left;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.skill-items{
+    margin-bottom: 1.7rem;
+
+}
+
+.footer-section {
+    background-color: #282c3461;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    margin-top: 100px;
+}
+
+.footer-socials a {
+    color: #61dafb;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-socials a:hover {
+    text-decoration: underline;
+}
+
+/* Back-to-top button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top.visible {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: #5254f8;
+}
+
